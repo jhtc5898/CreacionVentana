@@ -5,9 +5,13 @@
  */
 package creacionventana;
 
-import Controlador.GestionDato;
-import Modelo.Participante;
-import Modelo.Registro;
+
+import competencia.controlador.GestionDato;
+import competencia.modelo.Ciudad;
+import competencia.modelo.Competencia;
+import competencia.modelo.Inscripcion;
+import competencia.modelo.Persona;
+import competencia.vista.Ventana;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -30,10 +34,15 @@ public class CreacionVentana {
     public static void main(String[] args) 
     {
         
-          List<Participante> personaList= new ArrayList();
-        List<Registro> registroList=new ArrayList();
-        GestionDato gd = new GestionDato(personaList,registroList);
-        VentanaPrincipal VP = new VentanaPrincipal("Registro",800,500,gd);
+         
+        List<Persona> p = new ArrayList<Persona>();
+        List<Ciudad> c = new ArrayList<Ciudad>();
+        List<Competencia> com = new ArrayList<Competencia>();
+        List<Inscripcion> i = new ArrayList<Inscripcion>();
+        
+        GestionDato gD = new GestionDato(p,c,com,i);
+        Ventana v = new Ventana(gD);
+        v.setVisible(true);
         
     }
     
