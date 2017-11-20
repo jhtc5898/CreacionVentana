@@ -5,6 +5,9 @@
  */
 package creacionventana;
 
+import Controlador.GestionDato;
+import Modelo.Participante;
+import Modelo.Registro;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -27,37 +30,10 @@ public class CreacionVentana {
     public static void main(String[] args) 
     {
         
-        JFrame miVentana = new JFrame( "Mi Ventana" );
-        
-        JPanel Panel = new JPanel();
-        
-        Panel.setBackground(Color.GREEN);
-        
-        JLabel lb1 = new JLabel("Hola Mundo");
-        Panel.add(lb1);
-        
-        
-        JTextField Te1 =new JTextField(20);
-        Panel.add(Te1);
-        
-        Dimension dim = new Dimension(800,800);
-        miVentana.setSize(dim);
-   
-       
-        
-        JButton B1 = new JButton("Inicio");
-        B1.setSize(50, 50);
-        Panel.add(B1);
-        
-        JButton B2 = new JButton("Hola");
-        B2.setSize(100,100);
-        Panel.add(B2) ;
-        
-        
-        
-        miVentana.add(Panel);
-        miVentana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
-        miVentana.setVisible(true);
+          List<Participante> personaList= new ArrayList();
+        List<Registro> registroList=new ArrayList();
+        GestionDato gd = new GestionDato(personaList,registroList);
+        VentanaPrincipal VP = new VentanaPrincipal("Registro",800,500,gd);
         
     }
     
